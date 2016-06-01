@@ -1,0 +1,33 @@
+<div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-12">
+        <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+        </p>
+        <div class="jumbotron text-center">
+            <h1>Admin Application</h1>
+            <p>This is an application with super issues.</p>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12 item">
+                <div ng-if="auth.isAuthenticated">
+                    <h2>Welcome {{auth.profile.nickname}}</h2>
+                    <button class="btn btn-lg btn-primary" ng-click="callApi()">Call API</button> <br />
+                    <pre>{{ auth.profile | json }}</pre>
+                </div>
+
+                <div ng-if="!auth.isAuthenticated">
+                    <h2>Permission error</h2>
+                </div>
+
+                <span ng-bind="$ctrl.carText"></span>
+                <span ng-bind="$ctrl.carInfo"></span>
+
+                <car-user-component
+                        variable-param="$ctrl.variableToPass"
+                        string-param="some string"
+                        function-to-pass="$ctrl.functionToBePassed()"
+                ></car-user-component>
+            </div>
+        </div>
+    </div>
+</div>
